@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject">
+            <connections>
+                <outlet property="delegate" destination="199" id="1261"/>
+            </connections>
+        </customObject>
+        <userDefaultsController representsSharedInstance="YES" id="1655" userLabel="Defaults"/>
+        <customObject id="199" userLabel="Server" customClass="IPAServer">
+            <connections>
+                <outlet property="_consonants" destination="1167" id="1172"/>
+                <outlet property="_descriptionText" destination="996" id="997"/>
+                <outlet property="_diacritic" destination="1170" id="1173"/>
+                <outlet property="_extipa" destination="1171" id="1175"/>
+                <outlet property="_fontMenu" destination="341" id="344"/>
+                <outlet property="_glyphView" destination="372" id="373"/>
+                <outlet property="_keyboardText" destination="1685" id="1687"/>
+                <outlet property="_other" destination="1169" id="1174"/>
+                <outlet property="_scanningText" destination="1229" id="1230"/>
+                <outlet property="_searchResultsTable" destination="1120" id="1129"/>
+                <outlet property="_searchText" destination="1688" id="1690"/>
+                <outlet property="_supra" destination="1163" id="1166"/>
+                <outlet property="_tabs" destination="305" id="728"/>
+                <outlet property="_unicodeText" destination="965" id="966"/>
+                <outlet property="_user" destination="1335" id="1337"/>
+                <outlet property="_userGlyphsController" destination="1494" id="1503"/>
+                <outlet property="_vowels" destination="1162" id="1165"/>
+                <outlet property="_window" destination="209" id="212"/>
+            </connections>
+        </customObject>
+        <customObject id="1494" userLabel="User Glyphs Controller" customClass="UserGlyphsController">
+            <connections>
+                <outlet property="_editSheet" destination="1467" id="1496"/>
+                <outlet property="_table" destination="1485" id="1495"/>
+                <outlet property="_window" destination="209" id="1497"/>
+                <outlet property="delegate" destination="199" id="1501"/>
+            </connections>
+        </customObject>
+        <window title="__IPA_PALETTE__" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="209" userLabel="Panel" customClass="IPAPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" nonactivatingPanel="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="1231" y="2" width="689" height="286"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+            <value key="minSize" type="size" width="680" height="270"/>
+            <view key="contentView" id="210">
+                <rect key="frame" x="0.0" y="0.0" width="689" height="286"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView controlSize="mini" id="305">
+                        <rect key="frame" x="10" y="13" width="509" height="256"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <tabViewItems>
+                            <tabViewItem label="__VOWEL__" identifier="Vowel" id="306">
+                                <view key="view" id="308">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <splitView vertical="YES" id="1164">
+                                            <rect key="frame" x="2" y="2" width="485" height="217"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView fixedFrame="YES" id="1162" customClass="PDFImageMap">
+                                                    <rect key="frame" x="-3" y="-3" width="298" height="223"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="Vow.pdf" id="1555"/>
+                                                    <connections>
+                                                        <action selector="imageAction:" target="199" id="1203"/>
+                                                        <outlet property="delegate" destination="199" id="1197"/>
+                                                    </connections>
+                                                </imageView>
+                                                <imageView fixedFrame="YES" id="1163" customClass="PDFImageMap">
+                                                    <rect key="frame" x="298" y="-3" width="190" height="223"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="SupraTone.pdf" id="1556"/>
+                                                    <connections>
+                                                        <action selector="imageAction:" target="199" id="1204"/>
+                                                        <outlet property="delegate" destination="199" id="1198"/>
+                                                    </connections>
+                                                </imageView>
+                                            </subviews>
+                                            <holdingPriorities>
+                                                <real value="250"/>
+                                                <real value="250"/>
+                                            </holdingPriorities>
+                                        </splitView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__CONS__" identifier="Consonant" id="307">
+                                <view key="view" id="309">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView id="1167" customClass="PDFImageMap">
+                                            <rect key="frame" x="1" y="1" width="488" height="223"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="Cons.pdf" id="1557"/>
+                                            <connections>
+                                                <action selector="imageAction:" target="199" id="1205"/>
+                                                <outlet property="delegate" destination="199" id="1199"/>
+                                            </connections>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__OTHER__" identifier="Diacritic" id="808">
+                                <view key="view" id="796">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <splitView vertical="YES" id="1168">
+                                            <rect key="frame" x="1" y="1" width="487" height="213"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView fixedFrame="YES" id="1170" customClass="PDFImageMap">
+                                                    <rect key="frame" x="-3" y="-3" width="244" height="219"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="Diacritic.pdf" id="1560"/>
+                                                    <connections>
+                                                        <action selector="imageAction:" target="199" id="1206"/>
+                                                        <outlet property="delegate" destination="199" id="1200"/>
+                                                    </connections>
+                                                </imageView>
+                                                <imageView fixedFrame="YES" id="1169" customClass="PDFImageMap">
+                                                    <rect key="frame" x="244" y="-3" width="246" height="219"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="Other.pdf" id="1559"/>
+                                                    <connections>
+                                                        <action selector="imageAction:" target="199" id="1207"/>
+                                                        <outlet property="delegate" destination="199" id="1201"/>
+                                                    </connections>
+                                                </imageView>
+                                            </subviews>
+                                            <holdingPriorities>
+                                                <real value="250"/>
+                                                <real value="250"/>
+                                            </holdingPriorities>
+                                        </splitView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__EXTIPA__" identifier="extIPA" id="310">
+                                <view key="view" id="311">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView id="1171" customClass="PDFImageMap">
+                                            <rect key="frame" x="1" y="1" width="487" height="218"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ExtIPA.pdf" id="1558"/>
+                                            <connections>
+                                                <action selector="imageAction:" target="199" id="1208"/>
+                                                <outlet property="delegate" destination="199" id="1202"/>
+                                            </connections>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__USER_GLYPHS_TAB__" identifier="User" id="1333">
+                                <view key="view" id="1334">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView id="1335" customClass="PDFImageMap">
+                                            <rect key="frame" x="0.0" y="0.0" width="488" height="223"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="1572"/>
+                                            <connections>
+                                                <action selector="imageAction:" target="199" id="1553"/>
+                                                <outlet property="delegate" destination="199" id="1374"/>
+                                            </connections>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__SRCH__" identifier="Search" id="1117">
+                                <view key="view" id="1118">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="1119">
+                                            <rect key="frame" x="17" y="33" width="452" height="171"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <clipView key="contentView" id="vV2-7r-S2F">
+                                                <rect key="frame" x="1" y="0.0" width="450" height="170"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="1592" id="1120" customClass="IPASearchResults">
+                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="147"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="0" editable="NO" width="59" minWidth="40" maxWidth="1000" id="1121">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="__GLYPH__">
+                                                                    <font key="font" metaFont="label" size="11"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="1586">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            </tableColumn>
+                                                            <tableColumn identifier="1" editable="NO" width="385.2373" minWidth="40" maxWidth="1000" id="1122">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="__DESCRIPTION__">
+                                                                    <font key="font" metaFont="label" size="11"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="1587">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="199" id="1130"/>
+                                                            <outlet property="delegate" destination="199" id="1131"/>
+                                                        </connections>
+                                                    </tableView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" controlSize="small" horizontal="YES" id="1591">
+                                                <rect key="frame" x="1" y="-22" width="439" height="11"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="1590">
+                                                <rect key="frame" x="-22" y="17" width="11" height="153"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <tableHeaderView key="headerView" id="1592">
+                                                <rect key="frame" x="0.0" y="0.0" width="450" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableHeaderView>
+                                        </scrollView>
+                                        <searchField verticalHuggingPriority="750" textCompletion="NO" id="1688" customClass="IPASearchField">
+                                            <rect key="frame" x="17" y="6" width="447" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" bezelStyle="round" id="1689">
+                                                <font key="font" metaFont="label" size="11"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </searchFieldCell>
+                                            <connections>
+                                                <outlet property="delegate" destination="199" id="1691"/>
+                                            </connections>
+                                        </searchField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="__SETTINGS__" identifier="About" id="1176">
+                                <view key="view" id="1177">
+                                    <rect key="frame" x="10" y="19" width="489" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <popUpButton toolTip="Verbosity level of messages sent to Console" verticalHuggingPriority="750" id="1220">
+                                            <rect key="frame" x="350" y="40" width="123" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" title="__FALLBACK__" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1225" id="1568">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <menu key="menu" title="OtherViews" id="1221">
+                                                    <items>
+                                                        <menuItem title="__FALLBACK__" state="on" id="1225"/>
+                                                        <menuItem title="__LAST_RESORT__" id="1222"/>
+                                                        <menuItem title="__WARN_ONLY__" id="1223"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="1655" name="selectedIndex" keyPath="values.GlyphFallback" id="1661"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <popUpButton toolTip="Verbosity level of messages sent to Console" verticalHuggingPriority="750" id="1637">
+                                            <rect key="frame" x="350" y="63" width="123" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" title="__USER_GLYPHS__" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" pullsDown="YES" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="1642" id="1638">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <menu key="menu" title="OtherViews" showsStateColumn="NO" autoenablesItems="NO" id="1639">
+                                                    <items>
+                                                        <menuItem title="__USER_GLYPHS__" state="on" hidden="YES" id="1642"/>
+                                                        <menuItem title="__EDIT_SYMBOLS__" id="1648">
+                                                            <connections>
+                                                                <action selector="editSymbolsAction:" target="1494" id="1653"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                        <menuItem title="__EXPORT_SYMBOLS__" id="1640">
+                                                            <connections>
+                                                                <action selector="exportSymbolsAction:" target="1494" id="1651"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                        <menuItem title="__IMPORT_SYMBOLS__" id="1641">
+                                                            <connections>
+                                                                <action selector="importSymbolsAction:" target="1494" id="1652"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="148" id="1219">
+                                            <rect key="frame" x="194" y="42" width="152" height="11"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="right" title="__MISSING_SYMBOLS__" id="1567">
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="148" id="1612">
+                                            <rect key="frame" x="194" y="19" width="152" height="11"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="right" title="__DEBUGGING__" id="1629">
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <popUpButton toolTip="Verbosity level of messages sent to Console" verticalHuggingPriority="750" id="1614">
+                                            <rect key="frame" x="350" y="17" width="123" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" title="__OFF__" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1624" id="1622">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <menu key="menu" title="OtherViews" id="1623">
+                                                    <items>
+                                                        <menuItem title="__OFF__" state="on" id="1624"/>
+                                                        <menuItem title="__DEBUG__" id="1625"/>
+                                                        <menuItem title="__VERBOSE__" id="1626"/>
+                                                        <menuItem title="__INSANE__" id="1627"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="1655" name="selectedIndex" keyPath="values.Debug" id="1657"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="1633">
+                                            <rect key="frame" x="17" y="17" width="172" height="196"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <clipView key="contentView" drawsBackground="NO" id="pYZ-PJ-Vha">
+                                                <rect key="frame" x="1" y="1" width="170" height="194"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" id="1636">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="194"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <size key="minSize" width="170" height="194"/>
+                                                        <size key="maxSize" width="463" height="10000000"/>
+                                                        <attributedString key="textStorage">
+                                                            <fragment>
+                                                                <string key="content">
+
+__IPA_PALETTE__ __VERSION__ (__LONG_VERSION__)
+
+__ME_ME_ME__
+http://www.blugs.com
+
+__CHARTS__ © 2005 IPA
+
+Includes MAAttachedWindow code by </string>
+                                                                <attributes>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="9" name="LucidaGrande"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="36">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="72">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="108">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="144">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="180">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="216">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="288">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="324">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="360">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="396">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="432">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Matt Gemmell">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="9" name="LucidaGrande"/>
+                                                                    <integer key="NSLigature" value="0"/>
+                                                                    <url key="NSLink" string="http://mattgemmell.com"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="36">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="72">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="108">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="144">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="180">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="216">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="288">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="324">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="360">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="396">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="432">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment>
+                                                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                <attributes>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="9" name="LucidaGrande"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="36">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="72">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="108">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="144">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="180">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="216">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="288">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="324">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="360">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="396">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="432">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    </textView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1635">
+                                                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1634">
+                                                <rect key="frame" x="-100" y="-100" width="15" height="194"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
+                                        <button id="1692">
+                                            <rect key="frame" x="193" y="83" width="281" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="check" title="__SHOW_KEYS__" bezelStyle="regularSquare" imagePosition="right" alignment="right" controlSize="mini" inset="2" id="1693">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="1655" name="value" keyPath="values.KeyboardSync" id="1695"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                        <connections>
+                            <binding destination="1655" name="selectedIdentifier" keyPath="values.Tab" id="1672"/>
+                            <outlet property="delegate" destination="199" id="1297"/>
+                        </connections>
+                    </tabView>
+                    <popUpButton verticalHuggingPriority="750" id="341">
+                        <rect key="frame" x="519" y="252" width="151" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="IPA Fonts" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="339" id="1573">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                            <menu key="menu" title="OtherViews" id="343">
+                                <items>
+                                    <menuItem title="IPA Fonts" state="on" id="339"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="fontAction:" target="199" id="345"/>
+                        </connections>
+                    </popUpButton>
+                    <imageView id="372" customClass="GlyphView">
+                        <rect key="frame" x="517" y="39" width="155" height="208"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="1574"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" id="965">
+                        <rect key="frame" x="517" y="20" width="155" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" title="U+Whatever" id="1575">
+                            <font key="font" metaFont="label" size="11"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="1685">
+                        <rect key="frame" x="516" y="4" width="155" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" title="Keyboard shortcut" allowsEditingTextAttributes="YES" id="1686">
+                            <font key="font" metaFont="label" size="11"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="996">
+                        <rect key="frame" x="14" y="4" width="501" height="14"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Voiceless glottalized prenasalized epiglottal trill with nasal release" id="1576">
+                            <font key="font" metaFont="label" size="11"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="147" id="1229">
+                        <rect key="frame" x="519" y="252" width="151" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="__LOOKING__" id="1577">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="199" id="225"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="147"/>
+        </window>
+        <window title="Panel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="1467" userLabel="Add Symbols" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="361" y="364" width="492" height="251"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+            <value key="minSize" type="size" width="213" height="107"/>
+            <view key="contentView" id="1468">
+                <rect key="frame" x="0.0" y="0.0" width="492" height="251"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="1471">
+                        <rect key="frame" x="382" y="12" width="96" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="__OK__" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="1583">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="acceptSheet:" target="1494" id="1498"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="1479">
+                        <rect key="frame" x="286" y="12" width="96" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="__CANCEL__" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1584">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancelSheet:" target="1494" id="1499"/>
+                        </connections>
+                    </button>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="1481">
+                        <rect key="frame" x="20" y="60" width="452" height="171"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <clipView key="contentView" id="kes-hH-oiZ">
+                            <rect key="frame" x="1" y="0.0" width="450" height="170"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" headerView="1595" id="1485" customClass="UserGlyphsTable">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="147"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn identifier="0" width="59" minWidth="40" maxWidth="1000" id="1487">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="__GLYPH__">
+                                                <font key="font" metaFont="label" size="11"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="1589">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                        <tableColumn identifier="1" width="385.2373" minWidth="40" maxWidth="1000" id="1486">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="__DESCRIPTION__">
+                                                <font key="font" metaFont="label" size="11"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="1588">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                    </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="1494" id="1504"/>
+                                        <outlet property="delegate" destination="1494" id="1505"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" controlSize="small" horizontal="YES" id="1594">
+                            <rect key="frame" x="1" y="-22" width="439" height="11"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="1593">
+                            <rect key="frame" x="-22" y="17" width="11" height="153"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="1595">
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
+                    <button id="1492">
+                        <rect key="frame" x="20" y="20" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1585">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="addAction:" target="1494" id="1500"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="139" y="514"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="Cons.pdf" width="128" height="128"/>
+        <image name="Diacritic.pdf" width="128" height="128"/>
+        <image name="ExtIPA.pdf" width="128" height="128"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="Other.pdf" width="128" height="128"/>
+        <image name="SupraTone.pdf" width="128" height="128"/>
+        <image name="Vow.pdf" width="128" height="128"/>
+    </resources>
+</document>
